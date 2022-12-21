@@ -1,0 +1,21 @@
+
+
+        <section id="viewCatalog" class="background-img">
+            <!--If there are one or more toys-->
+
+            {{#if toys}}
+            <div class="added-toys">
+                {{#each toys}}
+                {{> toy}}
+                {{/each}}
+               
+            </div>
+                {{else}}
+            <!--If there are no toys in catalog yet-->
+           <div class="guest">
+                There are no toys found...
+            </div>
+            {{/if}}
+        </section>
+
+      

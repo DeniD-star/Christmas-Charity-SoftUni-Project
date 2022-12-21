@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Charity Christmas</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <!-- In case of error, you should display div with class "errorContainer" -->
+    <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+   
+    <div>
+         {{#if errors}}
+        
+        <div class="errorContainer">
+            {{#each errors}}
+            <p>{{this}}</p>
+             {{/each}}
+        </div>
+          {{/if}}
+    </div>
+ 
+
+    <div id="container">
+
+        <nav>
+            <ul>
+                <!--For all users-->
+                
+                <li><a href="/">Home</a></li>
+                <li><a href="/toys/catalog">Catalog</a></li>
+                <!--For loggin users-->
+                {{#if user}}
+                <li><a href="/toys/create">Create Toy</a></li>
+                <li><a href="/toys/search">Search</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
+                <!--For guest user-->
+                {{else}}
+                <li><a href="/auth/login">Login</a></li>
+                <li><a href="/auth/register">Register</a></li>
+                {{/if}}
+
+            </ul>
+
+        </nav>
+{{{body}}}
+     <footer>@SoftUni - JS Back-end - Charity Christmas 2022</footer>
+    </div>
+
+</body>
+
+</html> 

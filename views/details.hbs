@@ -1,0 +1,32 @@
+<section id="detailsPage">
+  <div id="detailsInfo">
+    <h1>Title: {{toy.title}}</h1>
+    <div class="info"><img src="{{toy.imageUrl}}" /></div>
+    <div class="info">
+      <h3>CHARITY: {{toy.charity}}</h3>
+      <h3>CATEGORY: {{toy.category}}</h3>
+      <h3>DESCRIPTION: {{toy.description}}</h3>
+      <h2>PRICE: ${{toy.price}}</h2>
+    </div>
+    <!--If there is user logged in-->
+    {{#if user}}
+      <div class="buttons">
+        <!--If user is not owner of the toy post-->
+
+        <!--If user is owner-->
+        {{#if toy.isAuthor}}
+          <a href="/toys/edit/{{toy._id}}" class="edit-btn">Edit</a>
+          <a href="/toys/delete/{{toy._id}}" class="delete-btn">Delete</a>
+        {{else}}
+
+          <!--If user is not the owner and is bought this toy-->
+          {{#if toy.bought}}
+            <p><span class="buy">Thank You For Your Purchase :)</span></p>
+          {{else}}
+            <a href="/toys/buy/{{toy._id}}" class="buy-btn">Buy</a>
+          {{/if}}
+        {{/if}}
+      </div>
+    {{/if}}
+  </div>
+</section>
